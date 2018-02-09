@@ -1,15 +1,54 @@
-import numpy as np
+import math
 class MathDojo(object):
     def __init__(self):
         self.result = 0
     def add(self, arg, *args):
-        self.result += 0 + arg + sum(args)
+        # Check the type() of 1st argument
+        # if tuple (which can be a list or another tuple), iterate through values
+        if type(arg) == tuple or type(arg) == list:
+            for i in arg:
+                if type(i) == list or type(i) == tuple:
+                    # add values inside list or tuple using sum() function
+                    self.result += sum(i)
+                else:
+                    # if of int type, add value to self.result without using sum() function - syntax error if sum() is used
+                    self.result += i
+        else: 
+            # type(arg) == int:
+            self.result += arg
+        # else:
+        #     self.result += sum(arg)
+
+        # Check the type() of additional arguments using same logic as 1st argument
+        if type(args) == tuple:
+            for i in args:
+                if type(i) == list or type(i) == tuple:
+                    self.result += sum(i)
+                else:
+                    self.result += i
         return self
     def subtract(self, arg, *args):
-        self.result -= (arg + sum(args))
+        if type(arg) == tuple:
+            for i in arg:
+                if type(i) == list or type(i) == tuple:
+                    self.result -= sum(i)
+                else:
+                    self.result -= i
+        elif type(arg) == int:
+            self.result -= arg
+        else:
+            self.result -= sum(arg)
+        if type(args) == tuple:
+            for i in args:
+                if type(i) == list or type(i) == tuple:
+                    self.result -= sum(i)
+                else:
+                    self.result -= i
         return self
 
 md = MathDojo()
-print "Result: ", md.add(2).add(2,5).subtract(3,2).result
-
-
+print "Result: ", md.add([1], 3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).result
+cd = MathDojo()
+print "Result: ", cd.add(2).add(2,5).subtract(3,2).result
+rd = MathDojo()
+print "Result: ", rd.add((2,3), 4).add(5,[5,7,1.2]).add(1,(4,2)).subtract([3,4],(2,1)).result
