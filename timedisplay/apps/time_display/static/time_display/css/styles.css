@@ -1,0 +1,16 @@
+#container {
+    width: 600px;
+}
+
+h4 {
+    border: 1px solid black;
+    display: inline-block;
+    width: 300px;
+    padding: 30px;
+}
+#time_container {
+    border: 1px solid black;
+    display: inline-block;
+    width: 500px;
+    padding: 50px;
+}
