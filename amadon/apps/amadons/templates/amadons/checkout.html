@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Amadon Checkout</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'amadons/css/styles.css' %}">
+    </head>
+    <body>
+        <div id="checkout">
+            <h1>Thank you for your business!</h1>
+            <div id="details">
+                <p>We charged your credit card for ${{ request.session.purchase_price }}</p>
+                <p>You have ordered {{ request.session.quantity }} items so far and spent ${{ request.session.totalPrice }} with Amadon.com!</p>
+            </div>
+            <a href="/amadon">Go Back</a>
+        </div>
+    </body>
+
+</html>
