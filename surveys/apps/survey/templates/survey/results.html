@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Survey Form</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'survey/css/styles.css' %}">
+    </head>
+    <body>
+        <center>
+            <div id="result">
+                <p>Thanks for submitting this form! You have submitted this form {{ request.session.counter }} times now.</p>
+
+            </div>
+            <div id="container">
+                <h1>Submitted Info</h1>
+                <p>Name: {{name}}</p>
+                <p>Dojo Location: {{location}}</p>
+                <p>Favorite Language: {{language}}</p>
+                <p>Comment: {{comment}}</p>
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Go Back</button>
+                </form>
+            </div>
+        </center>
+    </body>
+</html>
