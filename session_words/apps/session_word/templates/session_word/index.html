@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Session Word</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <center>
+            <div id="leftContainer">
+                    <h1>Add a new word</h1>
+                    <form action="/session_words/add_word" method="post">
+                        {% csrf_token %}
+                        <p><input type="text" name="new_word"></p>
+                        <p>Choose Color</p>
+                        <p>
+                            <label for="colorChoice">Red</label>
+                            <input type="radio" id="red" name="color" value="red" checked>     
+                        </p>
+                        <p>
+                            <label for="colorChoice">Green</label>
+                            <input type="radio" id="green" name="color" value="green">     
+                        </p>
+                        <p>
+                            <label for="colorChoice">Blue</label>
+                            <input type="radio" id="blue" name="color" value="blue">     
+                        </p>
+                        <p>
+                            <input type="hidden" name="sizeChoice" value="off" checked>
+                            <input type="checkbox" name="sizeChoice" value="on">
+                            <label for="sizeChoice">show in BIG fonts!</label>
+                        </p>
+                        <p>
+                            <button type="submit">Add to Session</button>
+                        </p>
+                    </form>
+            </div>
+            <div id="rightContainer">
+                <form action="/session_words/clear" method="post">
+                    {% csrf_token %}
+                    <button type="submit" id="clear">Clear Session</button>
+                </form>
+                <div id="words">
+                    {% for data in request.session.word_list %}
+                        <p><span style='color: {{ data.color }};' id="{{ data.size }}">{{ data.word }}</span><span> - added on {{ data.time }} </span></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </center>
+    </body>
+</html>
