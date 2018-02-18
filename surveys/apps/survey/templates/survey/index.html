@@ -9,7 +9,7 @@
     <body>
         <center>
             <div id="container">
-                <form action="result" method="post">
+                <form action="/surveys/process" method="post">
                     {% csrf_token %}
                     <p>Your Name <input type="text" name="name"></p>
                     <p>Dojo Location 

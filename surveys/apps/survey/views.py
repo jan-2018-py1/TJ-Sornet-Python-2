@@ -12,12 +12,14 @@ def index(request):
         request.session['counter'] += 1
     return render(request, 'survey/index.html')
 
-def result(request):
-    context = {
-        "name": request.POST['name'],
-        "location": request.POST['place'],
-        "language": request.POST['language'],
-        "comment": request.POST['comment']
-    }
+def process(request):
+    if 'counter' not in request.session:
+        request.session['counter'] = 1
+    request.session['name'] = request.POST['name']
+    request.session['location'] = request.POST['place']
+    request.session['language'] = request.POST['language']
+    request.session['comment'] = request.POST['comment']
+    return redirect('/result')
     
-    return render(request, 'survey/results.html', context)
+def result(request):
+    return render(request, 'survey/results.html')

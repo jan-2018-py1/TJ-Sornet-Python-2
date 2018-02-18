@@ -9,14 +9,13 @@
         <center>
             <div id="result">
                 <p>Thanks for submitting this form! You have submitted this form {{ request.session.counter }} times now.</p>
-
             </div>
             <div id="container">
                 <h1>Submitted Info</h1>
-                <p>Name: {{name}}</p>
-                <p>Dojo Location: {{location}}</p>
-                <p>Favorite Language: {{language}}</p>
-                <p>Comment: {{comment}}</p>
+                <p>Name: {{ request.session.name }}</p>
+                <p>Dojo Location: {{ request.session.location }}</p>
+                <p>Favorite Language: {{ request.session.language }}</p>
+                <p>Comment: {{ request.session.comment }}</p>
                 <form action="/" method="post">
                     {% csrf_token %}
                     <button type="submit">Go Back</button>
