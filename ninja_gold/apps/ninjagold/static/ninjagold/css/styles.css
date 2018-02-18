@@ -1,0 +1,52 @@
+#container {
+    width: 980px;
+    border: 1px solid black;
+}
+#container h1{
+    text-align: center;
+}
+
+#main {
+    text-align: center;
+}
+
+#place {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    border: 1px solid black;
+}
+#log {
+    width: 880px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 0px 0px 30px 40px;
+    overflow: scroll;
+}
+#activities p, #score p{
+    margin-left: 40px;
+}
+div #result {
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    margin-left: 0px;
+    padding-left: 10px;
+}
+#score p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#button {
+    box-shadow: 1px 2px black;
+}
+
+#red {
+    color: red;
+}
+#green {
+    color: green;
+}
