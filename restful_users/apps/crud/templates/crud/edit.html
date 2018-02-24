@@ -13,6 +13,7 @@
         <h1>Edit User {{ getUser.id }} </h1>
         <form action="/users/update", method='post'>
             {% csrf_token %}
+            <input type="hidden" name="id" value="{{ getUser.id }}">
             <p>First Name:</p>
             <input type="text" name="first_name" placeholder="{{ getUser.first_name }}">
             <p>Last Name:</p>

@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'users/new$', views.new, name="crud_new"),
     url(r'users/(?P<id>\d+)/edit$', views.edit, name="crud_edit"),
     url(r'users/(?P<id>\d+)$', views.show, name="crud_show"),
-    url(r'^users/create$', views.create),
+    url(r'users/create$', views.create, name="crud_create"),
     url(r'users/(?P<id>\d+)/destroy$', views.destroy, name="crud_destroy"),
     url(r'users/update$', views.update, name="crud_update"),
 ]
