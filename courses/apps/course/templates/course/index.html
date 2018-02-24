@@ -17,6 +17,13 @@
             <p>Description: <textarea name="course_desc" rows="5"></textarea></p>
             <p><button type="submit">Add</button></p>
         </form>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <div id="courseContainer">
         <h1>Courses</h1>
