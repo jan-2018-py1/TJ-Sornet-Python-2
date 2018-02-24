@@ -1,0 +1,32 @@
+#container {
+    width: 980px;
+    margin: 100px 0px 0px 100px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+    
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+    
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+a, h1 {
+    font-family: arial, sans-serif;
+}
+input {
+    display: block;
+}
+#submit {
+    background-color: blue;
+    color: white;
+    height: 30px;
+    width: 100px;
+    font-size: 1em;
+}
