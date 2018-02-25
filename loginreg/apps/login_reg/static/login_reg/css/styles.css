@@ -1,0 +1,15 @@
+input {
+    display: block;
+    margin-bottom: 20px;
+    height: 20px;
+}
+#container {
+    width: 980px;
+    margin-left: 100px;
+}
+#flash {
+    color: red;
+}
+#green {
+    color: green;
+}

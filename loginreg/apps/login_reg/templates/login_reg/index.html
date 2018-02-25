@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login & Reg | Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_reg/css/styles.css' %}">
+</head>
+<body>
+    <div id="container">
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Registration</h1>
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="text" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="confirm" placeholder="Confirm Password">
+            <input type="submit" name="submit">
+        </form>
+        <hr>
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <input type="text" name="email" placeholder="Email Address">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
