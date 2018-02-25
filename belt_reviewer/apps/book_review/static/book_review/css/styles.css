@@ -1,0 +1,46 @@
+input, label {
+    width: 150px;
+    display: inline-block;
+    height: 20px;
+}
+#container, #bookContainer {
+    /* width: 980px; */
+    margin-left: 100px;
+}
+#flash {
+    color: red;
+}
+#green {
+    color: green;
+}
+#registration, #login {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    border: 2px solid black;
+    padding: 30px;
+}
+#title{
+    width:50px;
+    padding: 0px 10px 0px 10px;
+    margin-top:-40px;
+    margin-left:10px;
+    background:white;
+}
+h1 {
+    margin-left: 50px;
+}
+#rightContainer, #leftContainer{
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+}
+#author, #review{
+    margin-left: 20px;
+}
+#review {
+    margin-bottom: 40px;
+}
+textarea{
+    vertical-align: top;
+}

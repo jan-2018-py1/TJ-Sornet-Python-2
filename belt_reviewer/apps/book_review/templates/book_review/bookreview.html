@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'book_review/css/styles.css' %}">
+</head>
+<body>
+    <div id="bookContainer">
+        <div id="leftContainer">
+            <h2>Welcome, {{ user.alias }}</h2>
+            <h4>Recent Book Reviews:</h4>
+            {% for data in review %}
+                <p>{{ data.book.title }}</p>
+                <div id="review">
+                    <p>Rating: {{ data.rating }}</p>
+                    <p>{{ data.user.alias }} says: {{ data.review }}</p>
+                    <p>Posted on {{ data.created_at }} </p>
+                </div>
+                <p></p>
+            {% endfor %}
+        </div>
+        <div id="rightContainer">
+            <a href="/books/add">Add book and review</a>
+            <a href="/logout">Logout</a>
+            <h4>Other Books with Reviews:</h4>
+            <textarea></textarea>
+        </div>
+
+    </div>
+    
+</body>
+</html>
