@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Reviews</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'book_review/css/styles.css' %}">
+</head>
+<body>
+    <div id="container">
+        <a href="/books">Home</a>
+        <a href="/books/add">Add book and review</a>
+        <a href="/logout">Logout</a>
+        <h2>User Alias: {{ user.alias }}</h2>
+        <p>Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Total Reviews: {{ review|length  }} </p>
+        <h2>Posted Reviews on the following books:</h2>
+        {% for data in review %}
+            <p><a href="/books/{{ data.book.id }}">{{ data.book.title }}</a></p>
+        {% endfor %}
+    </div>
+</body>
+</html>

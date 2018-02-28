@@ -67,12 +67,24 @@ def create(req):
 
 def show_book(req, id):
     context = {
-        "book": Book.objects.get(id=id)
+        "book": Book.objects.get(id=id),
+        "review": Review.objects.filter(book = Book.objects.get(id=id))
     }
     return render(req, 'book_review/book.html', context)
 
-# def show_user(req, id):
-#     return render(req, 'book_review/user.html')
+def show_user(req, id):
+    context = {
+        "user": User.objects.get(id=id),
+        "review": Review.objects.filter(user = User.objects.get(id=id))
+    }
+    return render(req, 'book_review/user.html', context)
 
+def addreview(req):
+    book_id = req.POST['book_id']
+    book = Book.objects.get(id=book_id)
+    user = User.objects.get(id=req.session['user_id'])
+    review = Review.objects.create(review=req.POST['review'], rating=int(req.POST['rating']), book=book, user=user)
+    review_id = review.id
+    return HttpResponseRedirect(reverse('book_show', kwargs={'id':book_id}))
 # def destroy(req, id):
 #     return HttpResponseRedirect(reverse('book_show', kwargs={'id':user_id}))

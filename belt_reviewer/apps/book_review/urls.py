@@ -8,8 +8,9 @@ urlpatterns = [
     url(r'books$', views.books),
     url(r'logout$', views.logout),
     url(r'books/add$', views.add),
+    url(r'addreview$', views.addreview),
     url(r'books/create$', views.create),
     url(r'books/(?P<id>\d+)$', views.show_book, name="book_show"),
-    # url(r'users/(?P<id>\d+)$', views.show_user, name="user_show"),
+    url(r'users/(?P<id>\d+)$', views.show_user, name="user_show"),
     # url(r'books/delete/(?P<id>\d+)$', views.destroy),
 ]

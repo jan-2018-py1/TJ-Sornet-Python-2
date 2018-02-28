@@ -13,21 +13,20 @@
         <div id="leftContainer">
             <h2>Welcome, {{ user.alias }}</h2>
             <h4>Recent Book Reviews:</h4>
-            {% for data in review %}
-                <p>{{ data.book.title }}</p>
+            {% for data in review|slice:":3" %}
+                <p><a href='/books/{{ data.id }}'>{{ data.book.title }}</a></p>
                 <div id="review">
                     <p>Rating: {{ data.rating }}</p>
                     <p>{{ data.user.alias }} says: {{ data.review }}</p>
                     <p>Posted on {{ data.created_at }} </p>
                 </div>
-                <p></p>
             {% endfor %}
         </div>
         <div id="rightContainer">
             <a href="/books/add">Add book and review</a>
             <a href="/logout">Logout</a>
             <h4>Other Books with Reviews:</h4>
-            <textarea></textarea>
+            <textarea rows="10"></textarea>
         </div>
 
     </div>

@@ -11,12 +11,40 @@
 <body>
     <div id="container">
         <div id="leftContainer">
-            <h1>{{ book.title }}</h1>
+            <h2>{{ book.title }}</h2>
             <h3>Author: {{ book.author.name }} </h3>
+            <h2>Reviews:</h2>
+            <hr>
+            <div id="review">
+                {% for data in review %}
+                    <p>Rating: {{ data.rating }}</p>
+                    <p><a href="/users/{{ data.user.id }}">{{ data.user.alias }}</a> says: {{ data.review }}</p>
+                {% endfor %}
+            </div>
         </div>
         <div id="rightContainer">
             <a href="/books">Home</a>
             <a href="/logout">Logout</a>
+            <div id="addReview">
+                <h2>Add a Review:</h2>
+                <form action="/addreview" method="post">
+                    {% csrf_token%}
+                    <input type="hidden" name="book_id" value="{{ book.id }}">
+                    <textarea rows="5" name="review"></textarea>
+                    <p>
+                        Rating:
+                        <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        stars
+                    </p>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
         </div>
     </div>
     

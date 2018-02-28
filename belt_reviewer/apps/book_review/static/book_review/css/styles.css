@@ -44,3 +44,9 @@ h1 {
 textarea{
     vertical-align: top;
 }
+#rightContainer{
+    margin-left: 50px;
+}
+textarea {
+    width: 250px;
+}
