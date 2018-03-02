@@ -11,13 +11,11 @@ class MathDojo(object):
                     # add values inside list or tuple using sum() function
                     self.result += sum(i)
                 else:
-                    # if of int type, add value to self.result without using sum() function - syntax error if sum() is used
+                    # if type() int, add value to self.result without using sum() function - syntax error if sum() is used
                     self.result += i
         else: 
-            # type(arg) == int:
+            # type() int
             self.result += arg
-        # else:
-        #     self.result += sum(arg)
 
         # Check the type() of additional arguments using same logic as 1st argument
         if type(args) == tuple:
@@ -28,16 +26,21 @@ class MathDojo(object):
                     self.result += i
         return self
     def subtract(self, arg, *args):
-        if type(arg) == tuple:
+        # Check the type() of 1st argument
+        # if tuple (which can be a list or another tuple), iterate through values
+        if type(arg) == tuple or type(arg) == list:
             for i in arg:
                 if type(i) == list or type(i) == tuple:
+                    # subtract the sum() of values in list/tuple from result
                     self.result -= sum(i)
                 else:
+                    # subtract value if type() int
                     self.result -= i
-        elif type(arg) == int:
+        else: 
+            # type() int
             self.result -= arg
-        else:
-            self.result -= sum(arg)
+
+        # Check the type() of additional arguments using same logic as 1st argument
         if type(args) == tuple:
             for i in args:
                 if type(i) == list or type(i) == tuple:
