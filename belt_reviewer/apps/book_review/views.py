@@ -41,7 +41,8 @@ def logout(req):
 def books(req):
     context = {
         "user": User.objects.get(id=req.session['user_id']),
-        "review": Review.objects.all()
+        "review": Review.objects.all().order_by('-created_at'),
+        "book": Book.objects.all()
     }
     return render(req, 'book_review/bookreview.html', context)
 

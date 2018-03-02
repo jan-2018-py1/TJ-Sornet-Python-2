@@ -50,3 +50,10 @@ textarea{
 textarea {
     width: 250px;
 }
+#bookRevContainer {
+    border: 2px solid black;
+    overflow-y: scroll;
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+}

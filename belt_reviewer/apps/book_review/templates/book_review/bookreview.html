@@ -26,7 +26,11 @@
             <a href="/books/add">Add book and review</a>
             <a href="/logout">Logout</a>
             <h4>Other Books with Reviews:</h4>
-            <textarea rows="10"></textarea>
+            <div id="bookRevContainer">
+                {% for data in book %}
+                    <p><a href='/books/{{ data.id }}'>{{ data.title }}</a></p>
+                {% endfor %}
+            </div>
         </div>
 
     </div>
